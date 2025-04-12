@@ -61,6 +61,7 @@ app.post("/signin", async (req: Request, res: Response) => {
       .status(201)
       .cookie("token", token, { httpOnly: true })
       .json({ message: "User created successfully" });
+    console.log("New user created:", user);
   } catch (error) {
     console.error("Unexpected error during signup:", error);
     res.status(500).json({ error: "Internal server error" });
